@@ -1,0 +1,35 @@
+
+@import "color";
+
+body {
+    background-color: $background-color;
+    margin: 0px;
+}
+
+.app {
+    background-color: $background-color;
+    margin: 0px;
+    color: $text-color;
+}
+
+div {
+    font-family: Roboto, Arial,sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: $theme-color;
+    padding: 5px;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+}

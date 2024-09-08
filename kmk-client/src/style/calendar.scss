@@ -1,0 +1,97 @@
+@import "color";
+
+.monthHeader {
+    border-radius: 12px;
+    background-color: $medium-color;
+    color: $text-color;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.event {
+    display: flex;
+    .date {
+        display: block;
+        text-align: center;
+
+        .day {
+            font-size: larger;
+            color: $text-color;
+            text-decoration: none;
+        }
+
+        .month {
+            color: $dark-color;
+            font-size: small;
+            text-decoration: none;
+        }
+    }
+
+    .name {
+        margin: auto;
+        margin-left: 20px;
+        color: $text-color;
+        font-size: medium;
+    }
+}
+
+
+.eventPage {
+    height: 1000px;
+
+    .calendarIcon {
+        font-size: xx-large;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        font-weight: bold;
+
+        .banner {
+            height: 20px; 
+            background-color: hsl(350, 87%, 55%); 
+            border-top-left-radius: 10px; 
+            border-top-right-radius: 10px;
+        }
+    }
+    
+    .date {
+        color: hsl(350, 87%, 55%);
+        font-size: large;
+        font-weight: bold;
+        margin: 5px;
+        text-align: center;
+    }
+
+    .title {
+        font-size: xx-large;
+        font-weight: bold;
+        margin: 5px;
+        text-align: center;
+    }
+
+    button {
+        font-size: medium;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+
+        .icon {
+            margin-right: 5px;
+        }
+    }
+
+    .answerQty {
+        text-align: center;
+    }
+
+    .inviteStatusButton {
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+    .information-header {
+        font-size: large;
+        font-weight: bold;
+    }
+}

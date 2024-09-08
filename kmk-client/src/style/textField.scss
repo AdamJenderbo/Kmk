@@ -1,0 +1,19 @@
+
+@import "color";
+
+input[type=text] {
+    width: calc(100% - 10px);
+}
+input[type=number] {
+    width: calc(100% - 10px);
+}
+
+input[type=text]:focus {
+    outline-color: $theme-color;
+    outline-width: 1px;
+}
+
+input[type=number]:focus {
+    outline-color: $theme-color;
+    outline-width: 1px;
+}

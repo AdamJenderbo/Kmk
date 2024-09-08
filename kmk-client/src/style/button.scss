@@ -1,0 +1,54 @@
+@import "color";
+
+.button {
+    color: white;
+    border: none;
+    border-radius: 12px;
+    height: 32px;
+    font-weight: bold;
+    font-size: medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    background-color: $theme-color;
+
+    &.disabled {
+        background-color: $button-color-disbaled;
+    }
+
+    &.save {
+        background-color: rgb(0, 128, 0);
+
+        &.disabled {
+            background-color: rgb(0, 128, 0, 0.5);
+        }
+    }
+
+    &.delete {
+        background-color: red;
+        &.disabled {
+            background-color: rgb(255, 0, 0, 0.5);
+        }
+    }
+
+    
+    &.create {
+        background-color: rgb(0, 128, 0);;
+
+        &.disabled {
+            background-color: rgb(0, 128, 0, 0.5);
+        }
+    }
+
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: $button-color-disbaled;
+    cursor: auto;
+}
