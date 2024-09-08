@@ -18,7 +18,8 @@ const persistConfig = {
         "channel", 
         "form", 
         "notification",
-        "role"
+        "role",
+        "user"
     ]
 }
 
