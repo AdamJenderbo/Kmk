@@ -22,6 +22,7 @@ public class User
         string password,
         string firstName, 
         string lastName, 
+        DateTime dateOfBirth,
         string address, 
         string phoneNumber,
         Instrument instrument)
@@ -32,7 +33,7 @@ public class User
         Email = email;
         PhoneNumber = phoneNumber;
         Address = address;
-        DateOfBrith = DateTime.Now;
+        DateOfBrith = dateOfBirth;
         Instrument = instrument;
         Password = password;
         Approved = false;

@@ -14,7 +14,7 @@ export function apiGet(route, body) {
             body: JSON.stringify(body),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 'Authorization': `Bearer ${token}`
             }
         });

@@ -59,6 +59,7 @@ public class UserService
             AuthenticationService.HashPassword(request.Password),
             request.FirstName,
             request.LastName,
+            request.DateOfBirth,
             request.Address,
             request.PhoneNumber,
             request.Instrument);

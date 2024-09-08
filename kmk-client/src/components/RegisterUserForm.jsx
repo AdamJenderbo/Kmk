@@ -8,6 +8,7 @@ import TextField from './TextField';
 import { instrumentOptions } from '../actions/instrument,';
 import SelectField from './SelectField';
 import Label from './Label';
+import { DateField } from './fields/DateField';
 
 export default class RegisterUserForm extends React.Component
 {
@@ -22,6 +23,9 @@ export default class RegisterUserForm extends React.Component
                 </Label>
                 <Label label="Efternamn">
                     <TextField source={form} property="lastName" onEdit={onEdit}/>
+                </Label>
+                <Label label="Födelsedag">
+                    <DateField source={form} property="dateOfBirth" onEdit={onEdit}/>
                 </Label>
                 <Label label="Email">
                     <TextField source={form} property="email" onEdit={onEdit}/>

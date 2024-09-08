@@ -10,7 +10,7 @@ public class RegisterUserRequest
     public string LastName { get; set; } = string.Empty;
     public string Address { get; set; } = string.Empty;
     public string PhoneNumber { get; set; } = string.Empty;
-    //public DateTime DateOfBrith { get; set; }
+    public DateTime DateOfBirth { get; set; }
     public Instrument Instrument { get; set; }
 
     public string? Validate()

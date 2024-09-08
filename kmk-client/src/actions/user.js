@@ -173,7 +173,8 @@ export function registerUser() {
                 password: form.password,
                 phoneNumber: form.phoneNumber,
                 address: form.address,
-                instrument: parseInt(form.instrument)
+                instrument: parseInt(form.instrument),
+                dateOfBirth: form.dateOfBirth,
             }));
 
             dispatch({ type: SET_USER, user: response.user });
