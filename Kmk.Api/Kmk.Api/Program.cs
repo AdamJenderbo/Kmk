@@ -4,7 +4,6 @@ using Kmk.Api.Application.Authentication;
 using Kmk.Api.Application.Calendar;
 using Kmk.Api.Application.Channels;
 using Kmk.Api.Application.Chat;
-using Kmk.Api.Application.Facebook;
 using Kmk.Api.Application.Images;
 using Kmk.Api.Application.Notifications;
 using Kmk.Api.Application.Users;
@@ -26,12 +25,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-var localConnection = "Server=DESKTOP-LPG7OKD; Initial Catalog=Kmk; Trusted_Connection=true; TrustServerCertificate=True";
-
-//var prodConnecton = "Server=db7432.databaseasp.net; Database=db7432; User Id=db7432; Password=A_b5=x7LfR%8; Encrypt=False; MultipleActiveResultSets=True;";
-
-builder.Services.AddSqlServer<KmkContext>(localConnection, options => options.EnableRetryOnFailure());
+builder.Services.AddSqlServer<KmkContext>(connectionString, options => options.EnableRetryOnFailure());
 
 builder.Services.AddCors(options =>
 {
@@ -65,9 +61,6 @@ builder.Services.AddScoped<IJwtProvider, JwtProvider>();
 builder.Services.AddAuthorization();
 builder.Services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
 builder.Services.AddSingleton<IAuthorizationPolicyProvider, RoleAuthorizationPolicyProvider>();
-
-// Clients
-builder.Services.AddScoped<FacebookClient>();
 
 // Commands
 builder.Services.AddScoped<AuthenticationService>();
@@ -103,8 +96,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
-    app.UseSwaggerUI();
+app.UseSwagger();
+app.UseSwaggerUI();
 //}
 
 //app.UseHttpsRedirection();
