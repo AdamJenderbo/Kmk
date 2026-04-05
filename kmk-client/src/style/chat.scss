@@ -1,0 +1,10 @@
+@import "color";
+
+
+.message {
+    padding: 5px;
+}
+
+.message:hover  {
+    background-color: $medium-dark-color;
+}

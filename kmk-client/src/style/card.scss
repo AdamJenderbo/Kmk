@@ -1,0 +1,24 @@
+@import "color";
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0px 1px 11px 0px rgba(0,0,0,0.3);
+    background-color: $card-color;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card-header {
+    font-weight: bold;
+    padding: 16px;
+}
+
+.card-content {
+    &.padding {
+        padding: 10px
+    };
+}
+
+.card-footer {
+    padding: 16px;
+}

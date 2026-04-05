@@ -1,0 +1,6 @@
+@Kmk.Api_HostAddress = http://localhost:5249
+
+GET {{Kmk.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

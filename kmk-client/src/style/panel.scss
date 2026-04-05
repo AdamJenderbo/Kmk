@@ -1,0 +1,13 @@
+@import "color";
+
+.panel-content {
+    padding: 5px;
+}
+
+.panel-header {
+    background-color: $theme-color;
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    padding: 5px;
+}
