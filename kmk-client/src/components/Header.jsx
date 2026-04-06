@@ -109,13 +109,98 @@ export default function NotificationBell({ notifications, onMarkAsRead }) {
                         {n.message}
                     </div>
                 ))}
-            </div>
-        )}
+            </div>)}
         </div>
     );
 }
 
-export const Header = ({ logout, isLoggedIn, notifications, user, readNotifications}) => 
+function ProfileDropdown({ user, logout }) {
+    const [isOpen, setIsOpen] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const menuItems = [
+        { label: "Log out", action: logout },
+    ];
+
+    return (
+        <div
+            ref={ref}
+            style={{
+                position: "relative",
+                display: "inline-block",
+                marginRight: 20,
+                cursor: "pointer",
+            }}
+        >
+            <FontAwesomeIcon
+                icon={faUserCircle}
+                size="2x"
+                onClick={() => setIsOpen(o => !o)}
+                style={{ color: isOpen ? "#2563eb" : undefined }}
+            />
+
+            {isOpen && (
+                <div
+                    style={{
+                        position: "absolute",
+                        top: "100%",
+                        right: 0,
+                        marginTop: 8,
+                        width: 180,
+                        background: "white",
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                        borderRadius: 8,
+                        zIndex: 1000,
+                        overflow: "hidden",
+                    }}
+                >
+                    {user && (
+                        <div
+                            style={{
+                                padding: "10px 14px",
+                                borderBottom: "1px solid #eee",
+                                fontWeight: 600,
+                                fontSize: 14,
+                                color: "#374151",
+                            }}
+                        >
+                            {`${user.firstName}  ${user.lastName}` }
+                        </div>
+                    )}
+                    {menuItems.map((item, i) => (
+                        <div
+                            key={i}
+                            onClick={() => { setIsOpen(false); item.action(); }}
+                            style={{
+                                padding: "10px 14px",
+                                borderBottom: i < menuItems.length - 1 ? "1px solid #eee" : "none",
+                                fontSize: 14,
+                                color: "#111827",
+                                cursor: "pointer",
+                            }}
+                            onMouseEnter={e => e.currentTarget.style.background = "#f3f4f6"}
+                            onMouseLeave={e => e.currentTarget.style.background = "white"}
+                        >
+                            {item.label}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export const Header = ({ logout, isLoggedIn, notifications, user, readNotifications}) =>
 {
     const navigate = useNavigate();
 
@@ -124,7 +209,7 @@ export const Header = ({ logout, isLoggedIn, notifications, user, readNotificati
             <div className='title' onClick={() => navigate("/")}>Kungälvs musikkår</div>
             <Menu isLoggedIn={isLoggedIn} user={user}/>
             {isLoggedIn && <div style={{cursor: "pointer", margin: "auto"}}><NotificationBell notifications={notifications} onMarkAsRead={readNotifications}/></div>}
-            {isLoggedIn && <div style={{cursor: "pointer", margin: "auto", marginRight: 20}}><FontAwesomeIcon icon={faUserCircle} size='2x'/></div>}
+            {isLoggedIn && <div style={{margin: "auto"}}><ProfileDropdown user={user} logout={logout} /></div>}
         </div>
     );
 }
