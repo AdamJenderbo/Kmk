@@ -9,7 +9,6 @@ export function logIn(email, password) {
     return async (dispatch) => {
         try {
             const response = await dispatch(apiPost(`${endpoint}/login`, {email, password}));
-            console.log(response);
             if(response.isSuccess) {
 
                 dispatch({ 

@@ -41,13 +41,18 @@ const LoginForm = ({logIn}) => {
         navigate("/register");
     }
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (valid() && !isLoading) onClickLogIn();
+    };
+
     return (
         <Card>
-            <div>
+            <form onSubmit={onSubmit}>
                 <div style={{margin: 10}}>
-                    <TextField 
-                        source={{email}} 
-                        property="email" 
+                    <TextField
+                        source={{email}}
+                        property="email"
                         onEdit={(change) => setEmail(change.email)}
                         className="login"
                         placeholder="Email"
@@ -55,33 +60,33 @@ const LoginForm = ({logIn}) => {
                 </div>
                 <div style={{margin: 10}}>
                     <PasswordField
-                        className="login" 
-                        source={{password}} 
-                        property="password" 
+                        className="login"
+                        source={{password}}
+                        property="password"
                         onEdit={(change) => setPassword(change.password)}
                         placeholder="Lösenord"
                     />
                 </div>
                 {error && <div style={{color: "red"}}>{error}</div>}
                 <div style={{margin: 10}}>
-                    <Button 
-                        disabled={!valid() || isLoading} 
-                        onClick={onClickLogIn} 
+                    <Button
+                        disabled={!valid() || isLoading}
+                        onClick={onClickLogIn}
                         shape="rounded"
                     >
                         Logga in
                     </Button>
-                </div>  
+                </div>
                 <div style={{margin: 10, marginTop: 30, paddingTop: 20, borderTop: "1px solid black"}}>
                     <Button
                         disabled={isLoading}
-                        onClick={onClickBecomeMember} 
+                        onClick={onClickBecomeMember}
                         shape="rounded"
                     >
                         Bli medlem
                     </Button>
-                </div>  
-            </div>
+                </div>
+            </form>
     </Card>);
 }
 

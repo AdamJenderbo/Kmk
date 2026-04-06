@@ -49,9 +49,14 @@ export const LoginPage = ({logIn}) => {
         }
     };
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+        if (valid()) onClickLogIn();
+    };
+
     return (
         <div style={{display: "flex", justifyContent: "center"}}>
-            <div style={{width: "60%", marginTop: 20}}>          
+            <form onSubmit={onSubmit} style={{width: "60%", marginTop: 20}}>
                 <Card padding={true}>
                     <Label label="Email">
                         <TextField
@@ -69,12 +74,12 @@ export const LoginPage = ({logIn}) => {
                             placeholder="Lösenord"
                         />
                     </Label>
-                    {error && <div style={{color: "red"}}>{error}</div>}  
+                    {error && <div style={{color: "red"}}>{error}</div>}
                 </Card>
                 <div className='row'>
                     <Button label="Logga in" disabled={!valid()} onClick={onClickLogIn} shape="rounded">Logga in</Button>
                 </div>
-              </div>
+            </form>
         </div>
     );
 }
