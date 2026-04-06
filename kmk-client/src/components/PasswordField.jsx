@@ -17,11 +17,11 @@ export default class PasswordField extends React.Component
 
     render() {
 
-        const {source, property, className} = this.props;
+        const {source, property, className, placeholder} = this.props;
 
         return (
             <div>
-                <input type="password" className={className} value={source[property]} onChange={this.onChange}></input>
+                <input type="password" className={className} value={source[property]} onChange={this.onChange} placeholder={placeholder}></input>
             </div>
          );
     }

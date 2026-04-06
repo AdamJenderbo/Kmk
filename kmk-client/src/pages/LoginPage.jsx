@@ -27,8 +27,8 @@ const mapDispatchToProps = dispatch => {
 
 export const LoginPage = ({logIn}) => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState(undefined);
+    const [password, setPassword] = useState(undefined);
 
     const [error, setError] = useState(undefined);
 
@@ -54,17 +54,19 @@ export const LoginPage = ({logIn}) => {
             <div style={{width: "60%", marginTop: 20}}>          
                 <Card padding={true}>
                     <Label label="Email">
-                        <TextField 
-                            source={{email}} 
-                            property="email" 
+                        <TextField
+                            source={{email}}
+                            property="email"
                             onEdit={(change) => setEmail(change.email)}
+                            placeholder="Email"
                         />
                     </Label>
                     <Label label="Lösenord">
-                        <PasswordField 
-                            source={{password}} 
-                            property="password" 
+                        <PasswordField
+                            source={{password}}
+                            property="password"
                             onEdit={(change) => setPassword(change.password)}
+                            placeholder="Lösenord"
                         />
                     </Label>
                     {error && <div style={{color: "red"}}>{error}</div>}  

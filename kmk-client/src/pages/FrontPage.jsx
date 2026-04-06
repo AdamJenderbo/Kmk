@@ -50,6 +50,7 @@ const LoginForm = ({logIn}) => {
                         property="email" 
                         onEdit={(change) => setEmail(change.email)}
                         className="login"
+                        placeholder="Email"
                     />
                 </div>
                 <div style={{margin: 10}}>
@@ -58,6 +59,7 @@ const LoginForm = ({logIn}) => {
                         source={{password}} 
                         property="password" 
                         onEdit={(change) => setPassword(change.password)}
+                        placeholder="Lösenord"
                     />
                 </div>
                 {error && <div style={{color: "red"}}>{error}</div>}
