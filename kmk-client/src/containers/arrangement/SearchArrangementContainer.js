@@ -9,7 +9,7 @@ const mapStateToProps = state => {
         header: "Sök arrangemang",
         user: state.user.user,
         colums: [{
-            header: "Löpnummer",
+            header: "Nr.",
             property: "serialNumber",
             dataType: "text"
         }, {

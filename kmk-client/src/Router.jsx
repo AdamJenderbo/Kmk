@@ -24,6 +24,7 @@ import AlbumsContainer from './containers/images/AlbumsContainer';
 import AlbumContainer from './containers/images/AlbumContainer';
 import LogContainer from './log/LogContainer';
 import CreateSheetMusicPage from './components/CreateSheetMusicPage';
+import ProfilePage from './pages/user/ProfilePage';
 
 const mapStateToProps = state => {
     return {
@@ -87,7 +88,8 @@ function Router({isLoggedIn, user}) {
                             <Route path="bilder/album/skapa" element={<CreateAlbumContainer/>}/>
                             <Route path="bilder/ladda-upp" element={<UploadImageContainer/>}/>
                         </Route> */}
-                        <Route path="notifikationer" element={<NotificationsContainer/>}/> 
+                        <Route path="profil" element={<ProfilePage/>}/>
+                        <Route path="notifikationer" element={<NotificationsContainer/>}/>
                     </Route>
                 }
             </Routes>

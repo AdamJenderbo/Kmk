@@ -117,6 +117,7 @@ export default function NotificationBell({ notifications, onMarkAsRead }) {
 function ProfileDropdown({ user, logout }) {
     const [isOpen, setIsOpen] = useState(false);
     const ref = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         function handleClickOutside(e) {
@@ -129,6 +130,7 @@ function ProfileDropdown({ user, logout }) {
     }, []);
 
     const menuItems = [
+        { label: "Min profil", action: () => navigate("/profil") },
         { label: "Log out", action: logout },
     ];
 
@@ -166,15 +168,19 @@ function ProfileDropdown({ user, logout }) {
                 >
                     {user && (
                         <div
+                            onClick={() => { setIsOpen(false); navigate("/profil"); }}
                             style={{
                                 padding: "10px 14px",
                                 borderBottom: "1px solid #eee",
                                 fontWeight: 600,
                                 fontSize: 14,
                                 color: "#374151",
+                                cursor: "pointer",
                             }}
+                            onMouseEnter={e => e.currentTarget.style.background = "#f3f4f6"}
+                            onMouseLeave={e => e.currentTarget.style.background = "white"}
                         >
-                            {`${user.firstName}  ${user.lastName}` }
+                            {`${user.firstName}  ${user.lastName}`}
                         </div>
                     )}
                     {menuItems.map((item, i) => (

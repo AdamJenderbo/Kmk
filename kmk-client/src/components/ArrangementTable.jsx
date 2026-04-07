@@ -4,7 +4,7 @@ import { Table } from './Table';
 export const ArrangementTable = ({arrangements}) => {
 {
         const colums = [{
-            header: "Löpnummer",
+            header: "Nr.",
             property: "serialNumber"
         }, {
             header: "Titel",
