@@ -158,9 +158,17 @@ export const Menu = ({isLoggedIn, user}) => {
 
     const menuDef = [arrangements, users, log];
 
+    const hasAccessibleChildren = (item) => {
+        if (!item.children || item.children.length === 0) return true;
+        return item.children.some(child => {
+            if (!child.roles || child.roles.length === 0) return true;
+            return child.roles.some(role => user.roles.includes(role));
+        });
+    };
+
     return (<div className='menu'>
         <div className='menuButtons'>
-            {menuDef.filter(x => (isLoggedIn && user.approved) || !x.login ).map((item, index) => (
+            {menuDef.filter(x => ((isLoggedIn && user.approved) || !x.login) && hasAccessibleChildren(x)).map((item, index) => (
                 <MenuItem
                     key={index}
                     item={item}
